@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:local="clr-namespace:Changa.Views"
+             xmlns:resources="clr-namespace:Changa.Resx"
+             Title="{Binding Title}"
+             x:Class="Changa.Views.ContributionPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resources:AppResources.Post}" Command="{Binding ContributeCommand}" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout Padding="16,8" >
+            
+            <!-- <Entry Text="{Binding ItemTitle.Value}" Placeholder="title" HorizontalOptions="FillAndExpand" /> -->
+            <Editor Text="{Binding ItemTitle.Value}" Placeholder="{x:Static resources:AppResources.Title}" HorizontalOptions="FillAndExpand" Style="{StaticResource MediumLabelStyle}" />
+            <Label Text="{x:Static resources:AppResources.Price}" Style="{StaticResource MediumLabelStyle}" />
+            <Editor Text="{Binding ItemPrice.Value}" HorizontalOptions="FillAndExpand" Keyboard="Numeric"  Style="{StaticResource MediumLabelStyle}" />
+            <Label Text="{x:Static resources:AppResources.Hours}" Style="{StaticResource MediumLabelStyle}" />
+            <Editor Text="{Binding ItemHours.Value}" HorizontalOptions="FillAndExpand" Keyboard="Numeric" Style="{StaticResource MediumLabelStyle}" />
+            <!--<Label Text="status" />
+            <Editor Text="{Binding ItemStatus.Value}" HorizontalOptions="FillAndExpand"  />-->
+            <Label Text="{x:Static resources:AppResources.Comment}"  Style="{StaticResource MediumLabelStyle}" />
+            <!-- <Editor Text="{Binding ItemComment.Value}" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"  /> -->
+            <Editor Text="{Binding ItemComment.Value}" HorizontalOptions="FillAndExpand" Style="{StaticResource MediumLabelStyle}" />           
+
+            <AbsoluteLayout HeightRequest="200">
+            <!--<Label Text="location" />-->
+                <local:MapView              AbsoluteLayout.LayoutFlags="All"
+                                            AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                <!--<local:MapView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+                
+                
+            <!--<ffimageloading:CachedImage Source="photo.png"
+                                            Aspect="AspectFit"
+                                            DownsampleToViewSize="true" 
+                                            IsVisible="{Binding ItemImageNotExists.Value}"
+                                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                                            AbsoluteLayout.LayoutBounds="0.5,0.5,100,100"/>
+                <ffimageloading:CachedImage Source="{Binding ItemImage.Value}"
+                                            Aspect="AspectFit"
+                                            DownsampleToViewSize="true" 
+                                            AbsoluteLayout.LayoutFlags="All"
+                                            AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                <Button Text="+" FontSize="48" Command="{Binding SelectImageCommand}" 
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource Primary}"/>-->
+            </AbsoluteLayout>
+
+            <Label Text="{Binding ItemLocation.Value}" Style="{StaticResource SmallLabelStyle}" />
+            <Label Text="{Binding ItemPostalCode.Value}" Style="{StaticResource SmallLabelStyle}" />
+
+    </StackLayout>
+    </ScrollView>    
+</ContentPage>

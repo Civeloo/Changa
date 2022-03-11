@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Changa.Views.SignupPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <StackLayout Padding="16,8">
+        <Entry Text="{Binding Email.Value}" 
+               Placeholder="mail address" 
+               Keyboard="Email"
+               HorizontalOptions="FillAndExpand" />
+        <Entry Text="{Binding Name.Value}" 
+               Placeholder="name"
+               HorizontalOptions="FillAndExpand" />
+        <Entry Text="{Binding Password.Value}" 
+               Placeholder="password"
+               IsPassword="true"    
+               HorizontalOptions="FillAndExpand" />
+        <Button Text="Sign up" 
+                Command="{Binding SignupCommand}"
+                HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>

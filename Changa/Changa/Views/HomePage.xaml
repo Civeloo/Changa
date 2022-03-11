@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Changa.Controls"
+             xmlns:collectionview="clr-namespace:AiForms.Renderers;assembly=CollectionView"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:pb="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:resources="clr-namespace:Changa.Resx"
+             Title="{Binding Title}"
+             x:Class="Changa.Views.HomePage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding ToolbarItemName}" Command="{Binding GoToContributionPageCommand}" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <Label Text="{x:Static resources:AppResources.Notices}" Style="{StaticResource MediumLabelStyle}" />
+        <controls:CustomGridCollectionView ItemsSource="{Binding Notices}"
+                                       GridType="AutoSpacingGrid"
+                                       TouchFeedbackColor="Gainsboro"
+                                       ItemTapCommand="{Binding NoticeCommand}"
+                                           HeightRequest="200">
+            <!--<collectionview:GridCollectionView.Behaviors>
+                <pb:EventToCommandBehavior EventName="ItemAppearing" Command="{Binding LoadMoreCommand}" EventArgsParameterPath="Item" />
+            </collectionview:GridCollectionView.Behaviors>-->
+            <collectionview:GridCollectionView.ItemTemplate>
+                <DataTemplate>
+                    <collectionview:ContentCell>
+                        <Grid BackgroundColor="{DynamicResource PrimaryColor}">
+                            <Grid.RowDefinitions>
+                                <!--<RowDefinition Height="*" />-->
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0" 
+                                     BackgroundColor="{DynamicResource PrimaryColor}"
+                                     Padding="1">
+                                <Label Text="{Binding Title.Value}" Style="{StaticResource MediumLabelStyle}" />
+                                <!--<Label Text="{Binding Comment.Value}" FontSize="Small"/>-->
+                            </StackLayout>
+                        </Grid>
+                    </collectionview:ContentCell>
+                </DataTemplate>
+            </collectionview:GridCollectionView.ItemTemplate>
+        </controls:CustomGridCollectionView>
+
+        <Label Text="{x:Static resources:AppResources.Works}" Style="{StaticResource MediumLabelStyle}" />
+        <controls:CustomGridCollectionView ItemsSource="{Binding Items}"
+                                       GridType="AutoSpacingGrid"
+                                       TouchFeedbackColor="Gainsboro"
+                                       ItemTapCommand="{Binding GoToItemDetailPageCommand}">
+        <collectionview:GridCollectionView.Behaviors>
+            <pb:EventToCommandBehavior EventName="ItemAppearing" Command="{Binding LoadMoreCommand}" EventArgsParameterPath="Item" />
+        </collectionview:GridCollectionView.Behaviors>
+        <collectionview:GridCollectionView.ItemTemplate>
+            <DataTemplate>
+                <collectionview:ContentCell>
+                    <Grid BackgroundColor="{DynamicResource PrimaryColor}">
+                        <Grid.RowDefinitions>
+                            <!--<RowDefinition Height="*" />-->
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--<ffimageloading:CachedImage Grid.Row="0" 
+                                                    Source="{Binding Image.Value}"
+                                                    LoadingPlaceholder="loading.png"
+                                                    Aspect="AspectFill"
+                                                    DownsampleUseDipUnits="true" 
+                                                    DownsampleWidth="200">
+                        </ffimageloading:CachedImage>-->
+                        <StackLayout Grid.Row="0" 
+                                     BackgroundColor="{DynamicResource PrimaryColor}" 
+                                     Padding="1">
+                            <Label Text="{Binding Title.Value}" Style="{StaticResource MediumLabelStyle}"/>
+                                <Label Text="{Binding Price.Value, StringFormat='$ {0:N}'}" Style="{StaticResource SmallLabelStyle}" />
+                                <Label Text="{Binding Hours.Value, StringFormat='{0:N}hs.'}" Style="{StaticResource SmallLabelStyle}" />
+                                <Label Text="{Binding Comment.Value}" Style="{StaticResource MicroLabelStyle}" />
+                            </StackLayout>
+                    </Grid>
+                </collectionview:ContentCell>
+            </DataTemplate>
+        </collectionview:GridCollectionView.ItemTemplate>
+        </controls:CustomGridCollectionView>
+    
+    </StackLayout>
+    
+</ContentPage>

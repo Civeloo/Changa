@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:localViews="clr-namespace:Changa.Views"
+             xmlns:resources="clr-namespace:Changa.Resx"
+             Title="{Binding Title}"
+             x:Class="Changa.Views.MyPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resources:AppResources.Save}" Command="{Binding SaveCommand}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout HorizontalOptions="FillAndExpand">
+        <StackLayout Padding="16,8,16,8">
+            <StackLayout Orientation="Horizontal" >
+                <ffimageloading:CachedImage HeightRequest="60"
+                                            WidthRequest="60"
+                                            Source="{Binding UserImage.Value}"
+                                            Aspect="AspectFit"
+                                            DownsampleToViewSize = "true">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation/>
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+                <Label Text="{Binding UserName.Value}" VerticalOptions="Center"  Style="{StaticResource MediumLabelStyle}" />
+                <Label Text="{Binding UserReputation.Value, StringFormat='({0:N}) '}" VerticalOptions="Center"  Style="{StaticResource MediumLabelStyle}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding ContributionCount.Value}" Style="{StaticResource MediumLabelStyle}"/>
+                <Label Text="{x:Static resources:AppResources.Works}" Style="{StaticResource MediumLabelStyle}"/>
+            </StackLayout>            
+            <!--<Label Text="Name" /><Entry Text="{Binding UserName.Value}" Placeholder="Name" HorizontalOptions="FillAndExpand" />-->
+            <!--<Label Text="PhoneNumber" />-->
+            <Editor Text="{Binding UserPhoneNumber.Value}" Placeholder="{x:Static resources:AppResources.Phone_Number}" Keyboard="Numeric"  Style="{StaticResource MediumLabelStyle}" />
+            <!--<Label Text="Email" /><Editor Text="{Binding UserEmail.Value}" HorizontalOptions="FillAndExpand" Keyboard="Numeric" />-->
+            <Editor Text="{Binding UserPostalCode.Value}" Placeholder="{x:Static resources:AppResources.Postal_Code}"  Style="{StaticResource MediumLabelStyle}" />            
+            <Label Text="{Binding UserLocation.Value}"  Style="{StaticResource MediumLabelStyle}" />
+            <localViews:MapView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

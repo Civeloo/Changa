@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Changa.Views.LoginPage"
+             xmlns:resources="clr-namespace:Changa.Resx"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="8">
+        <!--<Button Text="Login by email" Command="{Binding LoginWithEmailCommand}" />-->
+        <Button Text="{x:Static resources:AppResources.Login_with_Google}" Command="{Binding LoginWithGoogleCommand}"  Style="{StaticResource ButtonStyle}" />
+        <!--<Button Text="Sign up" Margin="0,30,0,0" Command="{Binding SignupCommand}" />-->
+    </StackLayout>
+</ContentPage>

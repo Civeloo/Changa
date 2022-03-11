@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms" x:Class="Changa.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <!--<Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="PrimaryDark">#1976D2</Color>
+            <Color x:Key="Accent">#FF4081</Color>--><!--
+            <Color x:Key="Background">#2196F3</Color>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="PrimaryDark">#3498DB</Color>
+            <Color x:Key="Accent">#3498DB</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarTextColor" Value="White" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+            </Style>-->
+            
+            <ResourceDictionary Source="Themes/BlueTheme.xaml" />
+            
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                    Value="{DynamicResource NavigationBarColor}" />
+                <Setter Property="BarTextColor"
+                    Value="{DynamicResource SecondaryColor}" />
+            </Style>
+
+            <Style x:Key="ButtonStyle"
+               TargetType="Button">
+                <Setter Property="BackgroundColor"
+                    Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="TextColor"
+                    Value="{DynamicResource SecondaryColor}" />
+                <Setter Property="HeightRequest"
+                    Value="45" />
+                <Setter Property="WidthRequest"
+                    Value="190" />
+                <Setter Property="CornerRadius"
+                    Value="18" />
+            </Style>
+
+            <Style x:Key="LargeLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor"
+                    Value="{DynamicResource SecondaryTextColor}" />
+                <Setter Property="FontSize"
+                    Value="30" />
+            </Style>
+
+            <Style x:Key="MediumLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor"
+                    Value="{DynamicResource PrimaryTextColor}" />
+                <Setter Property="FontSize"
+                    Value="25" />
+            </Style>
+
+            <Style x:Key="SmallLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor"
+                    Value="{DynamicResource TertiaryTextColor}" />
+                <Setter Property="FontSize"
+                    Value="15" />
+            </Style>
+
+            <Style x:Key="MicroLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor"
+                    Value="{DynamicResource TertiaryTextColor}" />
+                <Setter Property="FontSize"
+                    Value="10" />
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

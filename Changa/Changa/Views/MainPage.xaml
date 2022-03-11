@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  xmlns:converters="clr-namespace:Changa.Converters"
+                  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                  xmlns:prismbehaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+                  x:Class="Changa.Views.MainPage" 
+                  BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <MasterDetailPage.Master>
+        <ContentPage Title=" " Icon="{OnPlatform iOS='menu.png'}">
+            <ListView ItemsSource="{Binding Menus}" 
+                      SelectionMode="None"
+                      BackgroundColor="{DynamicResource PrimaryColor}">
+                <ListView.Behaviors>
+                    <prismbehaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                           Command="{Binding ShowDetailPageCommand}"
+                                                           EventArgsParameterPath="Item" />
+                </ListView.Behaviors>
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal" Padding="16,8,16,8">
+                        <ffimageloading:CachedImage HeightRequest="50"
+                                                    WidthRequest="50"
+                                                    Source="{Binding UserImage.Value}"
+                                                    Aspect="AspectFit"
+                                                    DownsampleToViewSize = "true">
+                            <ffimageloading:CachedImage.Transformations>
+                                <fftransformations:CircleTransformation/>
+                            </ffimageloading:CachedImage.Transformations>
+                        </ffimageloading:CachedImage>
+                        <Label Text="{Binding UserName.Value}" 
+                               VerticalOptions="Center" Style="{StaticResource MediumLabelStyle}" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="CenterAndExpand" Padding="16,0,0,0" >
+                                <Label Text="{Binding}" Style="{StaticResource MediumLabelStyle}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <StackLayout></StackLayout>
+                </ListView.Footer>
+            </ListView>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage >

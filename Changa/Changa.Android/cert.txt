@@ -1,0 +1,45 @@
+
+C:\Users\DeGsoft\Source\repos\Changa\Changa\Changa.Android>cd "C:\Program Files\
+Android\jdk\microsoft_dist_openjdk_1.8.0.25\bin"
+
+C:\Program Files\Android\jdk\microsoft_dist_openjdk_1.8.0.25\bin>keytool.exe -li
+st -v -keystore "C:\Users\DeGsoft\AppData\Local\Xamarin\Mono for Android\debug.k
+eystore" -alias androiddebugkey -storepass android -keypass android
+Nombre de Alias: androiddebugkey
+Fecha de Creación: 19-jul-2020
+Tipo de Entrada: PrivateKeyEntry
+Longitud de la Cadena de Certificado: 1
+Certificado[1]:
+Propietario: CN=Android Debug, O=Android, C=US
+Emisor: CN=Android Debug, O=Android, C=US
+Número de serie: 546025f1
+Válido desde: Sun Jul 19 17:50:23 ART 2020 hasta: Tue Jul 12 17:50:23 ART 2050
+Huellas digitales del certificado:
+         MD5: 9E:AD:92:E1:F7:18:0C:01:6B:85:94:B0:F2:58:E5:EA
+         SHA1: 2C:CB:5F:03:D0:09:CF:05:BB:6E:CE:04:B7:A1:A4:81:B6:5D:49:96
+         SHA256: EC:AE:E0:D6:F8:FD:BE:71:AB:70:4C:5A:CC:CE:B3:65:8E:AD:D3:FF:A0:
+25:F0:61:70:D8:13:70:6E:D8:14:94
+Nombre del algoritmo de firma: SHA256withRSA
+Algoritmo de clave pública de asunto: Clave RSA de 2048 bits
+Versión: 3
+
+Extensiones:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 80 93 DB 20 EB F9 B8 54   0B BB 09 7E 70 70 17 FA  ... ...T....pp..
+0010: 11 5F 2D 7B                                        ._-.
+]
+]
+
+
+Warning:
+El almacén de claves JKS utiliza un formato propietario. Se recomienda migrar a
+PKCS12, que es un formato estándar del sector que utiliza "keytool -importkeysto
+re -srckeystore C:\Users\DeGsoft\AppData\Local\Xamarin\Mono for Android\debug.ke
+ystore -destkeystore C:\Users\DeGsoft\AppData\Local\Xamarin\Mono for Android\deb
+ug.keystore -deststoretype pkcs12".
+
+C:\Program Files\Android\jdk\microsoft_dist_openjdk_1.8.0.25\bin>pause
+Presione una tecla para continuar . . .

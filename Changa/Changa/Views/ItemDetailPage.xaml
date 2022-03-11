@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Changa.Controls"
+             xmlns:collectionview="clr-namespace:AiForms.Renderers;assembly=CollectionView"
+             xmlns:converters="clr-namespace:Changa.Converters"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:local="clr-namespace:Changa.Views"
+             xmlns:resources="clr-namespace:Changa.Resx"
+             Title="{Binding Title}"
+             x:Class="Changa.Views.ItemDetailPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding TbItemName.Value}" Command="{Binding DeleteCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <!--<ffimageloading:CachedImage HeightRequest="40"
+                                            WidthRequest="40"
+                                            Source="{Binding OwnerImage.Value}"
+                                            Aspect="AspectFit"
+                                            DownsampleToViewSize = "true">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation/>
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>-->                
+                <Label Text="{Binding UserName.Value}" Style="{StaticResource MediumLabelStyle}" />
+                <!-- <Label Text="{Binding UserReputation.Value, StringFormat='({0:N}) '}" Style="{StaticResource SmallLabelStyle}"/> -->
+                <!--<Label Text="{Binding UserPhoneNumber.Value}" Style="{StaticResource MediumLabelStyle}" />-->
+                <ImageButton Source="phone.png" Command="{Binding PhoneCommand}" BackgroundColor="Transparent" />
+            </StackLayout>
+            <!--<ffimageloading:CachedImage HeightRequest="350"
+                                        Source="{Binding ItemImage.Value}"
+                                        Aspect="AspectFit"
+                                        DownsampleToViewSize = "true" />-->            
+            <!--<Button Command="{Binding BidOrUnBidCommand}" 
+                    HorizontalOptions="Center"
+                    WidthRequest="240"
+                    BorderColor="LightPink"
+                    BorderWidth="2">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding IsBid.Value}"
+                                 Value="true">
+                        <Setter Property="BackgroundColor" Value="White" />
+                        <Setter Property="Text" Value="How nice doing" />
+                        <Setter Property="TextColor" Value="LightPink" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding IsBid.Value}"
+                                 Value="false">
+                        <Setter Property="BackgroundColor" Value="LightPink" />
+                        <Setter Property="Text" Value="How nice" />
+                        <Setter Property="TextColor" Value="White" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>-->
+            <!--<Label Text="{Binding BidCount.Value, StringFormat='{0}How nice'}"  FontSize="Small" Margin="16,0"/>-->
+            <Label Text="{Binding ItemTitle.Value}" Style="{StaticResource MediumLabelStyle}"
+                   />
+            <Label Text="{Binding ItemPrice.Value, StringFormat='$ {0:N}'}" Style="{StaticResource MediumLabelStyle}" 
+                   />
+            <Label Text="{Binding ItemHours.Value, StringFormat='{0:N}hs.'}" Style="{StaticResource MediumLabelStyle}" 
+                   />
+            <!--<Label Text="{Binding ItemStatus.Value}" FontSize="Medium" Margin="16,0"/>-->
+            <Label Text="{Binding ItemComment.Value}" Style="{StaticResource MediumLabelStyle}" />
+            <local:MapView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>            
+            <!--<Label Text="{Binding ItemLocation.Value}" FontSize="Medium" Margin="16,0"/>-->
+            <Label Text="{x:Static resources:AppResources.Workers}"  Style="{StaticResource MediumLabelStyle}"/>
+            
+            <controls:CustomGridCollectionView ItemsSource="{Binding Bids}"
+                                           GridType="AutoSpacingGrid"
+                                           ItemTapCommand="{Binding AssignCommand}">
+                <!--<collectionview:GridCollectionView.Behaviors>
+                    <pb:EventToCommandBehavior EventName="ItemAppearing" Command="{Binding LoadMoreCommand}" EventArgsParameterPath="Item" />
+                </collectionview:GridCollectionView.Behaviors>-->
+                <collectionview:GridCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <collectionview:ContentCell>
+                            <Grid BackgroundColor="{DynamicResource PrimaryColor}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.Row="0"
+                                            HeightRequest="60"
+                                            WidthRequest="60"
+                                            Source="{Binding BidderImage.Value}"
+                                            Aspect="AspectFit"
+                                            DownsampleToViewSize = "true">
+                                    <ffimageloading:CachedImage.Transformations>
+                                        <fftransformations:CircleTransformation/>
+                                    </ffimageloading:CachedImage.Transformations>
+                                </ffimageloading:CachedImage>                                    
+                                <StackLayout Grid.Row="1">
+                                    <Label Text="{Binding BidderName.Value}" 
+                                        Style="{StaticResource SmallLabelStyle}" />
+                                    <Label Text="{Binding BidderReputation.Value, StringFormat='({0:N})'}" 
+                                        Style="{StaticResource SmallLabelStyle}" />
+                                    <!--<Label Text="{Binding BidderPhoneNumber.Value}" 
+                                        FontSize="Medium"/>-->
+                                </StackLayout>
+                            </Grid>
+                        </collectionview:ContentCell>
+                    </DataTemplate>
+                </collectionview:GridCollectionView.ItemTemplate>
+            </controls:CustomGridCollectionView>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

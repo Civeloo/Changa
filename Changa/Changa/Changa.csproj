@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Company>Civeloo</Company>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+        <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
+        <PackageReference Include="Prism.NavigationEx" Version="1.2.0" />
+        <PackageReference Include="Plugin.FirebaseAuth" Version="2.0.0-pre2" />
+        <PackageReference Include="ReactiveProperty" Version="5.4.0" />
+        <PackageReference Include="PropertyChanged.Fody" Version="3.0.0" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.9.961" />
+        <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+        <PackageReference Include="AiForms.CollectionView" Version="0.3.10-pre" />
+        <PackageReference Include="Plugin.FirebaseStorage" Version="2.0.0-pre1" />
+        <PackageReference Include="Xamarin.Auth" Version="1.6.0.4" />
+        <PackageReference Include="Plugin.FirebaseCrashlytics" Version="2.0.0-pre1" />
+        <PackageReference Include="Plugin.FirebaseAnalytics" Version="2.0.0-pre2" />
+        <PackageReference Include="Nito.AsyncEx" Version="5.0.0" />
+        <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.9.961" />
+        <PackageReference Include="Prism.Plugin.Popups" Version="2.2.0.293" />
+        <PackageReference Include="Plugin.CloudFirestore" Version="2.0.0-pre1" />
+        <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Helpers\" />
+        <Folder Include="Controls\" />
+        <Folder Include="Events\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Resx\AppResources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppResources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resx\AppResources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Themes\BlueTheme.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\MapView.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="App.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\ContributionPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\EmailLoginPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\HomePage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\ItemDetailPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\LoadingPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\LoginPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\MainPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\MapView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\MyPage copy.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\MyPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\SignupPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+      <None Update="Views\SplashScreenPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </None>
+    </ItemGroup>
+</Project>

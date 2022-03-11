@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "386655451465",
+    "firebase_url": "https://civeloo-changa.firebaseio.com",
+    "project_id": "civeloo-changa",
+    "storage_bucket": "civeloo-changa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386655451465:android:062c6c89d88f330bef4298",
+        "android_client_info": {
+          "package_name": "com.civeloo.changa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386655451465-f9tkndic6sn9ifvtohh1ejcvgrvto0q6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.civeloo.changa",
+            "certificate_hash": "2ccb5f03d009cf05bb6ece04b7a1a481b65d4996"
+          }
+        },
+        {
+          "client_id": "386655451465-h9rr3lt0pmu9pf0jdi3o2enlc2hdphd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX9PnhduK1MRdEImHZz5IvSk-Y1LTTPS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386655451465-h9rr3lt0pmu9pf0jdi3o2enlc2hdphd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
